@@ -1,0 +1,1088 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratyush Purvarchan Upadhyay - Physics Student & Researcher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2563eb;
+            --accent-color: #f59e0b;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --border-color: #e5e7eb;
+            --success-color: #10b981;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-accent: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header */
+        .header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><radialGradient id="a" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:rgba(255,255,255,0.1)"/><stop offset="100%" style="stop-color:rgba(255,255,255,0)"/></radialGradient></defs><circle cx="10" cy="10" r="8" fill="url(%23a)"/><circle cx="30" cy="5" r="5" fill="url(%23a)"/><circle cx="50" cy="15" r="6" fill="url(%23a)"/><circle cx="70" cy="8" r="4" fill="url(%23a)"/><circle cx="90" cy="12" r="7" fill="url(%23a)"/></svg>') repeat;
+            opacity: 0.1;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateX(-100px); }
+            100% { transform: translateX(100px); }
+        }
+
+        .profile-section {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            background: var(--gradient-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            border: 4px solid rgba(255,255,255,0.2);
+            box-shadow: var(--shadow-xl);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .header .subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.6s ease 0.2s both;
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.8;
+            animation: fadeInUp 0.6s ease 0.4s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--bg-white);
+            padding: 1rem 0;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .nav.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .nav-item {
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .nav-item:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Contact Info */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .contact-item {
+            background: var(--bg-white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h3 {
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item p {
+            color: var(--text-light);
+        }
+
+        .contact-item a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sections */
+        .section {
+            padding: 4rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .card-subtitle {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            border: 2px solid var(--bg-white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .timeline-content {
+            background: var(--bg-white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .timeline-date {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-subtitle {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-category i {
+            color: var(--accent-color);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-list li:hover {
+            color: var(--secondary-color);
+            transform: translateX(10px);
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Expandable Sections */
+        .expandable {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .expandable-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .expandable-header:hover {
+            color: var(--secondary-color);
+        }
+
+        .expandable-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .expandable.active .expandable-icon {
+            transform: rotate(180deg);
+        }
+
+        .expandable-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .expandable.active .expandable-content {
+            max-height: 1000px;
+            padding: 1rem 0;
+        }
+
+        /* Achievement Badges */
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .badge {
+            background: var(--gradient-accent);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .badge.grade-o {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .badge.grade-a {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .badge.grade-b {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header .subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .nav-container {
+                gap: 1rem;
+            }
+
+            .nav-item {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .timeline {
+                padding-left: 1rem;
+            }
+
+            .timeline-item {
+                padding-left: 1.5rem;
+            }
+        }
+
+        /* Smooth animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="profile-section">
+                <div class="profile-image">
+                    <i class="fas fa-atom"></i>
+                </div>
+                <h1>Pratyush Purvarchan Upadhyay</h1>
+                <p class="subtitle">BSc Physics (Hons) | Quantum Researcher | Space Enthusiast</p>
+                <p class="quote">"Through understanding the unseen, we glimpse the infinite within ourselves."</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="container">
+            <div class="nav-container">
+                <a href="#about" class="nav-item"><i class="fas fa-user"></i> About</a>
+                <a href="#education" class="nav-item"><i class="fas fa-graduation-cap"></i> Education</a>
+                <a href="#research" class="nav-item"><i class="fas fa-flask"></i> Research</a>
+                <a href="#experience" class="nav-item"><i class="fas fa-briefcase"></i> Experience</a>
+                <a href="#skills" class="nav-item"><i class="fas fa-code"></i> Skills</a>
+                <a href="#achievements" class="nav-item"><i class="fas fa-trophy"></i> Achievements</a>
+                <a href="#contact" class="nav-item"><i class="fas fa-envelope"></i> Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+            </div>
+            <div class="card fade-in">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <div>
+                        <h3 class="card-title">Career Objective</h3>
+                    </div>
+                </div>
+                <p>Dedicated Bachelor of Science (Honours) Physics student with an exceptional passion for interdisciplinary research spanning quantum phenomena, thin films, and soft matter physics. Currently seeking challenging internship opportunities and research positions that leverage my strong analytical foundation and hands-on laboratory experience.</p>
+                <br>
+                <p>As an active member of the American Psychological Association (APA), I am particularly interested in pioneering research that bridges psychological phenomena with physics principles, extends biological concepts through physics frameworks, and advances our understanding of space science applications.</p>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="contact-grid fade-in">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <p>Anamayam, Bhopal<br>Madhya Pradesh, India</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <p>+91 8989190884</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p><a href="mailto:pratyushneo@gmail.com">pratyushneo@gmail.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <p><a href="https://www.linkedin.com/in/pratyush-upadhyay-0969" target="_blank">View Profile</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Education</h2>
+            </div>
+            
+            <div class="card fade-in">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div>
+                        <h3 class="card-title">Bachelor of Science (Honours) in Physics</h3>
+                        <p class="card-subtitle">Central University of Karnataka, Gulbarga | Expected: April 2027</p>
+                    </div>
+                </div>
+                <p><strong>Current Overall Grade:</strong> <span class="badge grade-a">A</span> (Up to Fourth Semester)</p>
+                
+                <div class="expandable" onclick="toggleExpand(this)">
+                    <div class="expandable-header">
+                        <h4>Academic Transcript</h4>
+                        <i class="fas fa-chevron-down expandable-icon"></i>
+                    </div>
+                    <div class="expandable-content">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-content">
+                                    <div class="timeline-date">Semester IV - April 2025</div>
+                                    <div class="badges">
+                                        <span class="badge grade-b">Waves and Optics: B+</span>
+                                        <span class="badge grade-o">Waves Lab: O</span>
+                                        <span class="badge grade-a">Modern Physics: A+</span>
+                                        <span class="badge grade-b">Modern Physics Lab: B+</span>
+                                        <span class="badge grade-a">Environmental Science: A+</span>
+                                        <span class="badge grade-o">Cell Biology: O</span>
+                                        <span class="badge grade-a">English IV: A+</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-content">
+                                    <div class="timeline-date">Semester III - November 2024</div>
+                                    <div class="badges">
+                                        <span class="badge grade-b">Computer Networks: B+</span>
+                                        <span class="badge grade-b">Professional Development: B+</span>
+                                        <span class="badge grade-a">English III: A+</span>
+                                        <span class="badge">Linear Algebra: P</span>
+                                        <span class="badge">Heat & Thermodynamics: C</span>
+                                        <span class="badge grade-a">Thermodynamics Lab: A</span>
+                                        <span class="badge grade-o">IoT Applications: O</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-content">
+                                    <div class="timeline-date">Semester II - July 2024</div>
+                                    <div class="badges">
+                                        <span class="badge grade-b">Electricity & Magnetism: B+</span>
+                                        <span class="badge grade-a">E&M Laboratory: A+</span>
+                                        <span class="badge grade-a">Python Programming: A+</span>
+                                        <span class="badge grade-a">Ethics: A</span>
+                                        <span class="badge grade-b">Differential Equations: B+</span>
+                                        <span class="badge grade-o">Office Automation: O</span>
+                                        <span class="badge grade-a">English II: A</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card fade-in">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div>
+                        <h3 class="card-title">High School Education</h3>
+                        <p class="card-subtitle">The Sardana International School | 2021 - 2023</p>
+                    </div>
+                </div>
+                <p><strong>Specialization:</strong> Physics, Chemistry, Mathematics with Computer Science</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Research Experience</h2>
+            </div>
+
+            <div class="card fade-in">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <div>
+                        <h3 class="card-title">Advanced Thin Film Research</h3>
+                        <p class="card-subtitle">Materials Physics Research Lab | Ongoing</p>
+                    </div>
+                </div>
+                <p><strong>Expected Publication:</strong> Summer 2026</p>
+                <ul>
+                    <li>Specialized in electrochemical deposition and spin coating methodologies</li>
+                    <li>Mastered advanced cleaning techniques including ultrasonic sonication protocols</li>
+                    <li>Investigating quantum phenomena in thin film structures</li>
+                    <li>Developing protocols for thin film analysis and property optimization</li>
+                </ul>
+            </div>
+
+            <div class="card fade-in">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <div>
+                        <h3 class="card-title">Biological Physics Research</h3>
+                        <p class="card-subtitle">Laboratory Techniques & Procedures</p>
+                    </div>
+                </div>
+                <ul>
+                    <li>Performed necropsy procedures on rodent models with ethical protocols</li>
+                    <li>Conducted ovariectomy and orchiectomy procedures with advanced suturing</li>
+                    <li>Applied biological research methodologies to understand physics-biology interfaces</li>
+                </ul>
+            </div>
+
+            <div class="card fade-in">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div>
+                        <h3 class="card-title">Astrophysics Research Projects</h3>
+                        <p class="card-subtitle">Small-Scale Research Initiatives</p>
+                    </div>
+                </div>
+                <ul>
+                    <li>Contributed to celestial object analysis and data interpretation</li>
+                    <li>Applied physics principles to model astrophysical phenomena</li>
+                    <li>Utilized statistical methods for astronomical data processing</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Professional Experience</h2>
+            </div>
+
+            <div class="timeline fade-in">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">June 2025 - July 2025</div>
+                        <div class="timeline-title">Astronomy & Astrophysics Intern</div>
+                        <div class="timeline-subtitle">Indian Space Lab</div>
+                        <h4>Supernova Cosmology Research Project</h4>
+                        <ul>
+                            <li>Utilized Type Ia supernovae data to calculate Hubble constant (H₀)</li>
+                            <li>Conducted comparison studies with Planck18 satellite measurements</li>
+                            <li>Investigated cosmic expansion through redshift-distance analysis</li>
+                            <li>Performed statistical residual analysis for measurement precision</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">December 2024 - January 2025</div>
+                        <div class="timeline-title">Advanced Technology Intern</div>
+                        <div class="timeline-subtitle">Indian Space Lab (Remote)</div>
+                        
+                        <div class="expandable" onclick="toggleExpand(this)">
+                            <div class="expandable-header">
+                                <h4>Training Programs</h4>
+                                <i class="fas fa-chevron-down expandable-icon"></i>
+                            </div>
+                            <div class="expandable-content">
+                                <h5>Advanced Drone Technology (Air Taxi)</h5>
+                                <ul>
+                                    <li>Comprehensive experience in drone system architecture</li>
+                                    <li>Hands-on assembly and testing protocols for urban air mobility</li>
+                                    <li>Advanced integration techniques for autonomous flight systems</li>
+                                </ul>
+                                
+                                <h5>CanSat and CubeSat Development</h5>
+                                <ul>
+                                    <li>Fundamental knowledge of small satellite systems</li>
+                                    <li>Expertise in designing satellite payloads for student missions</li>
+                                    <li>Mission planning and system optimization protocols</li>
+                                </ul>
+                                
+                                <h5>Astronomy Training Program</h5>
+                                <ul>
+                                    <li>Intensive observational sessions with professional telescopes</li>
+                                    <li>Mastered astrophotography and spectroscopy techniques</li>
+                                    <li>Advanced data analysis of celestial phenomena</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">January 2016 - January 2019</div>
+                        <div class="timeline-title">Junior Scientist</div>
+                        <div class="timeline-subtitle">The Sanskaar Valley School, Bhopal</div>
+                        <ul>
+                            <li>Represented school at regional and national science exhibitions</li>
+                            <li>Demonstrated innovations including holographic technology</li>
+                            <li>Led workshops on sustainable urban development and smart cities</li>
+                            <li>Conducted molecular biology experiments including DNA extraction</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Technical Skills</h2>
+            </div>
+
+            <div class="skills-grid fade-in">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming</h3>
+                    <ul class="skill-list">
+                        <li>Python (Advanced)</li>
+                        <li>MATLAB</li>
+                        <li>R (Basic)</li>
+                        <li>Java (Intermediate)</li>
+                        <li>HTML (Intermediate to Advanced)</li>
+                        <li>LaTeX (Advanced)</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-desktop"></i> Software</h3>
+                    <ul class="skill-list">
+                        <li>Mathematica</li>
+                        <li>Origin Pro</li>
+                        <li>LabVIEW</li>
+                        <li>Microsoft Office Suite</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-flask"></i> Laboratory</h3>
+                    <ul class="skill-list">
+                        <li>DNA Extraction Protocols</li>
+                        <li>Electrochemical Deposition</li>
+                        <li>Spin Coating</li>
+                        <li>Ultrasonic Cleaning</li>
+                        <li>I-V Measurements</li>
+                        <li>Raman Spectroscopy</li>
+                        <li>UV-Vis Analysis</li>
+                        <li>Photoluminescence</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-satellite"></i> Technology</h3>
+                    <ul class="skill-list">
+                        <li>IoT Development</li>
+                        <li>Arduino Programming</li>
+                        <li>Smart City Technologies</li>
+                        <li>System Integration</li>
+                        <li>CubeSat Design</li>
+                        <li>Drone Technology</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Achievements & Awards</h2>
+            </div>
+
+            <div class="card fade-in">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-basketball-ball"></i>
+                    </div>
+                    <div>
+                        <h3 class="card-title">Athletic Excellence</h3>
+                    </div>
+                </div>
+                <ul>
+                    <li><strong>National Level Basketball:</strong> Represented at national level (2 occasions)</li>
+                    <li><strong>Most Promising Player:</strong> U-14 IBSO Basketball Tournament (2018)</li>
+                    <li><strong>Team Captain:</strong> TSVS Basketball Team</li>
+                    <li><strong>Point Guard:</strong> Central University of Karnataka Basketball Team (2023-Present)</li>
+                </ul>
+            </div>
+
+            <div class="card fade-in">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div>
+                        <h3 class="card-title">Academic Recognition</h3>
+                    </div>
+                </div>
+                <ul>
+                    <li><strong>Multiple State Rankings:</strong> Silverzone Olympiad competitions</li>
+                    <li><strong>Degree in Theatrics:</strong> Sarvabharatiya certification program</li>
+                    <li><strong>Microsoft Office Ambassador</strong> (2016)</li>
+                    <li><strong>APA Member:</strong> American Psychological Association</li>
+                </ul>
+            </div>
+
+            <div class="card fade-in">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div>
+                        <h3 class="card-title">Languages</h3>
+                    </div>
+                </div>
+                <ul>
+                    <li><strong>Hindi:</strong> Native proficiency</li>
+                    <li><strong>English:</strong> Advanced professional proficiency</li>
+                    <li><strong>Spanish:</strong> Intermediate (A2 Level)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+            </div>
+            <div class="card fade-in" style="text-align: center;">
+                <h3>Let's Connect!</h3>
+                <p>I'm always interested in discussing physics, research opportunities, and innovative projects.</p>
+                <div style="margin: 2rem 0;">
+                    <a href="mailto:pratyushneo@gmail.com" style="display: inline-block; background: var(--gradient-primary); color: white; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; margin: 0 1rem; font-weight: 600; transition: transform 0.3s ease;">
+                        <i class="fas fa-envelope"></i> Email Me
+                    </a>
+                    <a href="https://www.linkedin.com/in/pratyush-upadhyay-0969" target="_blank" style="display: inline-block; background: var(--gradient-accent); color: white; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; margin: 0 1rem; font-weight: 600; transition: transform 0.3s ease;">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Pratyush Purvarchan Upadhyay. Built with passion for physics and discovery.</p>
+            <p>Made with <i class="fas fa-heart" style="color: #e74c3c;"></i> and lots of quantum coffee ☕</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Expandable sections
+        function toggleExpand(element) {
+            element.classList.toggle('active');
+        }
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Interactive hover effects for contact buttons
+        document.querySelectorAll('a[href^="mailto"], a[href*="linkedin"]').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.05)';
+            });
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add typing effect to the quote
+        function typeWriter(element, text, speed = 50) {
+            let i = 0;
+            element.innerHTML = '';
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing effect on page load
+        window.addEventListener('load', function() {
+            const quote = document.querySelector('.quote');
+            const originalText = quote.textContent;
+            setTimeout(() => {
+                typeWriter(quote, originalText, 30);
+            }, 1500);
+        });
+
+        // Add particle effect to header background
+        function createParticles() {
+            const header = document.querySelector('.header');
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.style.cssText = `
+                    position: absolute;
+                    width: ${Math.random() * 4 + 1}px;
+                    height: ${Math.random() * 4 + 1}px;
+                    background: rgba(255,255,255,0.3);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    animation: float ${Math.random() * 3 + 2}s infinite linear;
+                    left: ${Math.random() * 100}%;
+                    top: ${Math.random() * 100}%;
+                    animation-delay: ${Math.random() * 2}s;
+                `;
+                header.appendChild(particle);
+            }
+        }
+
+        // Initialize particles
+        createParticles();
+
+        // Add loading animation
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
